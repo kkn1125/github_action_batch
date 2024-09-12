@@ -28,8 +28,6 @@ async function run() {
     next();
   });
 
-  app.use(appRoute);
-
   app.listen(8000, () => {
     console.log(`listening on http://${ip}:8000`);
   });
