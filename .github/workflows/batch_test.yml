@@ -19,6 +19,7 @@ jobs:
       - run: echo $(ifconfig)
       - run: echo $(npm -v)
       - run: echo $(node -v)
+      - run: echo $(curl https://api.myip.com)
       - run: echo wow
 
 
