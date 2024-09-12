@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const axios = require("axios");
 const path = require("path");
 const cors = require("cors");
+const appRouter = require("./routes/AppRoute");
 
 dotenv.config({
   path: path.join(path.resolve(), ".env"),
