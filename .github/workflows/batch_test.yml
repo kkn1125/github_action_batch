@@ -15,7 +15,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.11.1
-      - run: systemctl start ssh.service
       - run: passwd runner
       - run: echo $(whoami)
       - run: echo $(ifconfig)
