@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const axios = require("axios");
 const path = require("path");
+const cors = require("cors");
 
 dotenv.config({
   path: path.join(path.resolve(), ".env"),
