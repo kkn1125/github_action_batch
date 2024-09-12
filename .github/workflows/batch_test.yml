@@ -23,5 +23,7 @@ jobs:
       - run: echo $(pwd)
       - run: echo $(ls)
       - run: echo wow
-
-
+      - name: run install
+        run: npm i
+      - name: run server
+        run: npm run dev
