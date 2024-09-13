@@ -2,7 +2,7 @@ name: Batch Test
 
 on:
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "0 6,9,12,15,18,21 * * *"
   workflow_dispatch:
 
 jobs:
@@ -15,16 +15,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.11.1
-      - run: passwd runner
-      - run: echo $(whoami)
-      - run: echo $(ifconfig)
-      - run: echo $(npm -v)
-      - run: echo $(node -v)
-      - run: echo $(curl https://api.myip.com)
-      - run: echo $(pwd)
-      - run: echo $(ls)
-      - run: echo wow
+      # - run: passwd runner
+      # - run: echo $(whoami)
+      # - run: echo $(ifconfig)
+      # - run: echo $(npm -v)
+      # - run: echo $(node -v)
+      # - run: echo $(curl https://api.myip.com)
+      # - run: echo $(pwd)
+      # - run: echo $(ls)
+      # - run: echo wow
       - name: run install
         run: npm i
       - name: run server
+        env:
+          EMAIL_PASS: ${{secrets.EMAIL_PASS}}
         run: npm run dev
