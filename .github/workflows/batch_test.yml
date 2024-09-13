@@ -26,6 +26,8 @@ jobs:
       # - run: echo wow
       - name: run install
         run: npm i
+      - name: run cross-env install
+        run: npm i
       - name: run server
         env:
           EMAIL_PASS: ${{secrets.EMAIL_PASS}}
