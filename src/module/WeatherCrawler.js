@@ -19,6 +19,7 @@ class WeatherCrawler extends Crawler {
       devtools: true,
     });
     const page = (await browser.pages()).at(0);
+    console.log("dong is : " + dongs[DONG]);
 
     await page.goto(`https://www.weather.go.kr/w/index.do${dongs[DONG]}`);
     await page.waitForSelector(".dfs-daily-slide");
