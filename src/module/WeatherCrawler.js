@@ -1,5 +1,15 @@
 const { sleep } = require("../util/sleep");
 const Crawler = require("./Crawler");
+const { DONG } = require("../common/variables");
+
+const dongs = {
+  sangbong1:
+    "#dong/1126059000/37.58961/127.08539/서울특별시%20중랑구%20상봉제2동/SEL/상봉제2동",
+  sangbong2:
+    "#dong/4817059500/35.198563/128.0751/경상남도%20진주시%20상봉동/SEL/상봉동",
+  samsung:
+    "#dong/1168058000/37.50904/127.05753/서울특별시%20강남구%20삼성1동/SEL/삼성1동",
+};
 
 class WeatherCrawler extends Crawler {
   results;
@@ -10,7 +20,7 @@ class WeatherCrawler extends Crawler {
     });
     const page = (await browser.pages()).at(0);
 
-    await page.goto(`https://www.weather.go.kr/w/index.do`);
+    await page.goto(`https://www.weather.go.kr/w/index.do${dongs[DONG]}`);
     await page.waitForSelector(".dfs-daily-slide");
     const els = await page.evaluate(() => {
       const slides = [...document.querySelectorAll(".dfs-daily-slide")];
